@@ -1,12 +1,22 @@
 # Energy-Conservation-Convergence
-This code runs a simulation, records kinetic energy (KE) and potential energy (PE), and checks whether the total energy deviation is within the tolerance (energy conservation). It also checks the convergence of the trajectory (whether the joint velocity tends to zero, indicating stability).
+**Logic**
 
-**Instructions**:
+• damping = 0 → check energy conservation
 
-• Conservation of energy: Calculate KE + PE and check the relative deviation.
+• damping > 0 → check if the velocity converges
 
-• Numerical convergence: Check if the velocity at the end of the trajectory is close to zero (applicable to damped systems; no convergence in undamped cases).
+📌 **Code Description (Energy & Convergence)**
 
-• Assumptions: Simple pendulum model with fixed mass/length; in practice, obtained from link properties.
+Physical Assumptions: Rigid pendulum, CoM ≈ height / 2
+**Energy Model**:
 
-• Expansion: For multi-joint systems, sum the KE/PE of all links. Add plotting (using matplotlib) to visualize the trajectory.
+KE = ½ m (lω)²
+
+PE = mgl(1 − cosθ)
+
+**Test Branches**:
+
+No damping → Numerical energy conservation
+
+With damping → Dynamic convergence
+
